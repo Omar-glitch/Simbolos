@@ -1,0 +1,979 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    background: #fff;
+    overflow-x: hidden;
+}
+/* Omar But Patriotico */
+#omarButPatriotico{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 150px;
+    height: 250px;
+    z-index: 1200;
+    visibility: hidden;
+    opacity: 0;
+    border: 2px solid blue;
+    box-shadow: 0 0 7px 0 blue;
+}
+/* loader */
+.loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 9000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+.loader-cont{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transform: translateY(-35px);
+
+}
+.loader .loader-cont span{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: #111;
+    margin: 0 10px;
+    height: calc(20px * var(--j));
+    animation: lol 2s linear infinite;
+    animation-delay: calc(0.25s * var(--j));
+}
+@keyframes lol{
+    0%{
+        background: #fff;
+        filter: blur(2px);
+        box-shadow: 0 0 10px #00b3ff,
+        0 0 20px #00b3ff,
+        0 0 40px #00b3ff,
+        0 0 80px #00b3ff,
+        0 0 120px #00b3ff,
+        0 0 200px #00b3ff,
+        0 0 300px #00b3ff,
+        0 0 400px #00b3ff;
+    }25%, 75%{
+        background: #111;
+        filter: blur(0px);
+        box-shadow: none;
+    }100%{
+        background: #fff;
+        filter: blur(2px);
+        box-shadow: 0 0 10px #d9ff00,
+        0 0 20px #d9ff00,
+        0 0 40px #d9ff00,
+        0 0 80px #d9ff00,
+        0 0 120px #d9ff00,
+        0 0 200px #d9ff00,
+        0 0 300px #d9ff00,
+        0 0 400px #d9ff00;
+    }
+}
+@keyframes lol2{
+    0%{
+        color: #fff;
+        filter: blur(2px);
+        text-shadow: 0 0 10px #d9ff00,
+        0 0 20px #d9ff00,
+        0 0 40px #d9ff00,
+        0 0 80px #d9ff00,
+        0 0 120px #d9ff00,
+        0 0 200px #d9ff00,
+        0 0 300px #d9ff00,
+        0 0 400px #d9ff00;
+    }25%, 75%{
+        color: #111;
+        filter: blur(0px);
+        text-shadow: none;
+    }100%{
+        color: #fff;
+        filter: blur(2px);
+        text-shadow: 0 0 10px #d9ff00,
+        0 0 20px #d9ff00,
+        0 0 40px #d9ff00,
+        0 0 80px #d9ff00,
+        0 0 120px #d9ff00,
+        0 0 200px #d9ff00,
+        0 0 300px #d9ff00,
+        0 0 400px #d9ff00;
+    }
+}
+
+.loader .loader-cont span i{
+    font-style: normal;
+    color: #fff;
+    display: block;
+    font-size: 50px;
+    font-weight: bold;
+    transform: translateY(70px);
+    animation: lol2 2s linear infinite;
+    animation-delay: calc(0.25s * var(--j));
+}
+@media only screen and (max-width: 370px){
+    .loader .loader-cont span i{
+        font-size: 38px;
+    }
+    .loader .loader-cont span{
+        width: 12px;
+    }
+}
+
+/*Header*/
+#header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 3px blue solid;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    /* background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); */
+    z-index: 1000;
+    transition: 1s;
+}
+
+.tit-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.tit-header img:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: solid 3px blue;
+    margin-right: 20px;
+    transition: .5s;
+}
+.tit-header img:nth-child(3) {
+    width: 45px;
+    height: 45px;
+    transition: .5s;
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    display: none;
+}
+
+.tit-header img:hover {
+    transform: scale(1.1);
+    border: dashed 3px blue;
+    cursor: pointer;
+}
+
+.tit-header h1 {
+    font-weight: 400;
+    transition: .5s;
+    font-size: 30px;
+}
+
+.tit-header h1:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.list-header {
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-header ul {
+    display: flex;
+}
+
+.list-header ul li {
+    list-style: none;
+}
+
+.list-header ul li a {
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 10px;
+    border-radius: 20px;
+    transition: .5s;
+    animation: hipervinculos 2s infinite;
+}
+
+.list-header ul li:nth-child(2) a {
+    animation-delay: .3s;
+}
+
+.list-header ul li:nth-child(3) a {
+    animation-delay: .6s;
+}
+
+.list-header ul li:nth-child(4) a {
+    animation-delay: .9s;
+}
+
+.list-header ul li:nth-child(5) a {
+    animation-delay: 1.2s;
+}
+
+@keyframes hipervinculos {
+    0% {
+        background: #fff;
+        color: blue;
+    }
+
+    40% {
+        background: #fff;
+        color: blue;
+    }
+
+    41% {
+        background: blue;
+        color: white;
+    }
+
+    60% {
+        background: white;
+        color: blue;
+    }
+
+    100% {
+        background: white;
+        color: blue;
+    }
+}
+
+.list-header ul li a:hover {
+    box-shadow: 0 0 10px 0 blue;
+}
+/*Section1*/
+#section1 {
+    width: 100%;
+    height: 100vh;
+    background-image: url(ImgHonduras/honduras4.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.deg-background {
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.home {
+    position: relative;
+    width: 100%;
+}
+
+.home h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    transition: .5s;
+}
+
+.home h1:hover {
+    color: blue;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.home hr {
+    width: 45%;
+    border: none;
+    margin: 0 auto 10px auto;
+    height: 4px;
+    background: #fff;
+    transition: .5s;
+}
+
+.home p {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    transition: .5s;
+}
+
+.home p:hover {
+    color: blue;
+    letter-spacing: 1px;
+    cursor: default;
+}
+.box{
+    position: relative;
+    width: 75px;
+    height: 70px;
+    transform-style: preserve-3d;
+    animation: animate 20s linear infinite;
+}
+@keyframes animate{
+    0%{
+        transform: perspective(1000px) rotateY(0deg);
+    }100%{
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+.box span{
+    margin-top: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;      
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(200px);
+    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #000);
+}
+.box span img{
+    width: 75px;
+    height: 70px;
+}
+/*Section2*/
+#section2 {
+    margin-top: 100px;
+    width: 100%;
+    height: fit-content;
+}
+
+.fiestas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fiestas .fiesta1 h1 {
+    font-size: 40px;
+    font-weight: 400;
+    transition: .5s;
+    text-align: center;
+    position: relative;
+    animation: polaco 5s infinite;
+}
+.fiestas .fiesta1 h1:hover{
+    cursor: pointer;
+}
+
+@keyframes polaco {
+    0% {
+        color: black;
+    }
+
+    50% {
+        color: white;
+    }
+
+    100% {
+        color: black;
+    }
+}
+
+.fiestas .fiesta1 {
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    width: 100%;
+    height: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.fiestas .fiesta1 .fiesta2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: width 10s infinite;
+}
+
+@keyframes width {
+    0% {
+        width: 100%;
+    }
+
+    25% {
+        width: 0%;
+    }
+
+    50% {
+        width: 100%;
+        right: 0;
+    }
+
+    75% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.fiestas .text-patrias {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.fiestas .text-patrias p {
+    width: 70%;
+    font-size: 24px;
+    text-align: center;
+    border: 4px solid blue;
+    border-radius: 60px;
+    padding: 30px;
+    transition: .5s;
+}
+
+.fiestas .text-patrias img {
+    width: 650px;
+    height: 450px;
+    margin-top: 40px;
+    border-radius: 30px;
+    /* -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #000); */
+}
+
+.fiestas p:hover {
+    cursor: default;
+    border: 4px dashed blue;
+    color: blue;
+}
+
+/*Section3Importante*/
+#section3 {
+    width: 100%;
+    height: fit-content;
+    background: url(ImgHonduras/honduras3.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    margin-top: 100px;
+}
+
+.tit-simbolos {
+    width: 100%;
+    position: relative;
+    background: rgba(0, 0, 0, 0.6);
+    height: 50px;
+    max-height: fit-content;
+    transition: .5s;
+}
+
+.tit-simbolos:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.tit-simbolos h1 {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    transition: .5s;
+    margin-bottom: 40px;
+}
+
+.tit-simbolos h1:hover {
+    color: blue;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.simbolos {
+    position: relative;
+    width: calc(33% - 10px);
+    /* justify-content: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    min-height: 600px;
+    transition: .5s;
+    border-radius: 30px;
+}
+
+.simbolos:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.simbolos img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    border: solid 5px blue;
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.simbolos:hover img {
+    transform: scale(1.1) rotate(360deg);
+    cursor: pointer;
+    border: 5px dashed white;
+}
+
+.simbolos h1 {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.simbolos h1:hover {
+    color: blue;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.simbolos p {
+    color: white;
+    font-size: 18px;
+    width: 80%;
+}
+
+.simbolos p:hover {
+    cursor: default;
+}
+
+/* Section4 */
+#section4 {
+    width: 100%;
+    height: fit-content;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.autor {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.autor h1 {
+    font-size: 40px;
+    font-weight: 400;
+    color: white;
+    transition: .5s;
+}
+
+.autor h1:hover {
+    cursor: pointer;
+    color: black;
+    letter-spacing: 3px;
+}
+
+.img-autor {
+    border-radius: 50%;
+    border: 5px solid blue;
+    transition: 1s;
+}
+
+.img-autor:hover {
+    transform: scale(1.1) rotate(360deg);
+    cursor: pointer;
+}
+
+.text-autor {
+    width: 75%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: fit-content;
+}
+
+.text-autor p {
+    font-size: 24px;
+    color: black;
+    border: black solid 5px;
+    padding: 40px;
+    border-radius: 30px;
+    background: white;
+    box-shadow: 0 0 6px 0 black;
+}
+
+.text-autor p:hover {
+    cursor: default;
+}
+
+/* Footer */
+#footer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 100px;
+    background: #000;
+    border-top: 2px blue solid;
+    padding-bottom: 100px;
+}
+
+.footer1 {
+    margin-top: 20px;
+}
+
+.footer1 h1 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.footer1 h1:hover {
+    cursor: default;
+    color: blue;
+}
+
+.footer1 ul li {
+    list-style: none;
+}
+
+.footer1 ul li a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    transition: .5s;
+    width: 100%;
+}
+
+.footer1 ul li:hover {
+    background: blue;
+    cursor: pointer;
+}
+
+.footer2 {
+    margin-top: 20px;
+}
+
+.footer2 h1 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.footer2 h1:hover {
+    cursor: default;
+    color: blue;
+}
+
+.footer2 ul li {
+    list-style: none;
+    color: white;
+    cursor: default;
+}
+
+.footer2 ul li a {
+    color: blue;
+    text-decoration: none;
+}
+
+.footer2 .iconos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.footer2 .iconos img {
+    width: 50px;
+    height: 50px;
+    border: white 2px solid;
+    background: blue;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+.footer2 .iconos img:hover {
+    cursor: pointer;
+    transform: rotateZ(360deg);
+    background: white;
+}
+/* MediaQuerys:v */
+@media only screen and (max-width: 1014px){
+    .tit-header h1{
+        font-size: 25px;
+    }
+}
+@media only screen and (max-width: 958px){
+    .tit-header h1{
+        font-size: 20px;
+    }
+    .tit-header img{
+        width: 50px;
+        height: 50px;
+    }
+    .list-header ul li a{
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 821px){
+    .tit-header h1{
+        font-size: 30px;
+    }
+    .list-header{
+        display: block;
+        position: fixed;
+        width: 40vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        background-image: linear-gradient(to right, #434343 0%, black 100%);
+        left: -500px;
+        transition: 1s;
+        border-right: 3px solid #ffffff;
+    }
+    .list-header ul{
+        flex-direction: column;
+        width: 100%;
+    }
+    .list-header ul li{
+        margin: 20px 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .list-header ul li a {
+        text-decoration: none;
+        margin: 0 10px;
+        padding: 10px 10px;
+        border-radius: 20px;
+        transition: .5s;
+        animation: hiper 10s infinite;
+        font-size: 18px;
+        color: black;
+        background: #fff;
+    }
+    @keyframes hiper{
+        0%{
+            transform: translateX(0px);
+            background-position: 0%;
+        }25%{
+            transform: translateX(25px);
+        }50%{
+            transform: translateX(0px);
+        }70%{
+            transform: translateX(-25px);
+        }100%{
+            transform: translateX(0px);
+            background-position: 400%;
+        }
+    }
+    .tit-header img:nth-child(3){
+        display: block;
+    }
+    /* headerarriba */
+    /* section1 */
+    .home hr{
+        width: 50%;
+    }
+    /* section2 */
+    .fiestas .text-patrias p{
+        font-size: 20px;
+    }
+    .fiestas .text-patrias img{
+        width: 400px;
+        height: 320px;
+    }
+    /* section3 */
+    .simbolos{
+        width: calc(50% - 15px);
+    }
+    /* section4 */
+    .img-autor{
+        width: 200px;
+        height: 200px;
+    }
+    .text-autor{
+        width: 95%;
+    }
+    .text-autor p{
+        font-size: 18px;
+    }
+    /* footer */
+    .footer1 h1{
+        font-size: 25px;
+    }
+    .footer1 ul li a{
+        font-size: 15px;
+    }
+    .footer2 h1{
+        font-size: 25px;
+    }
+    .footer2 ul li, .footer2 ul li a{
+        font-size: 15px;
+    }
+    .footer2 .iconos img{
+        width: 40px;
+        height: 40px;
+    }
+}
+@media only screen and (max-width: 631px){
+    /* Section3 */
+    .simbolos{
+        width: calc(100% - 30px);
+    }
+    .tit-header{
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 450px){
+    /* headerlists */
+    .list-header{
+        width: 60vw;
+    }
+    /* imgbox */
+    .box{
+        width: 60px;
+        height: 55px;
+    }
+    .box span{
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(110px);
+    }
+    .box span img{
+        width: 60px;
+        height: 55px;
+    }
+    /* section1 */
+    .home hr{
+        width: 80%;
+    }
+    .home p{
+        font-size: 18px;
+    }
+    .fiestas .text-patrias{
+        flex-direction: column;
+    }
+    .fiestas .text-patrias p{
+        width: 96%;
+        padding: 10px 5px;
+        text-align: center;
+    }
+    .fiestas .text-patrias img{
+        margin-top: 25px;
+    }
+    /* section2 */
+    .fiestas .fiesta1{
+        height: fit-content;
+    }
+    .fiestas .text-patrias img{
+        width: 200px;
+        height: 150px;
+    }
+    /* section3 */
+    .tit-simbolos{
+        height: 100px;
+    }
+    /* footer */
+    #footer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 50px;
+    }
+    .footer1{
+        width: 80%;
+    }
+    .footer2{
+        width: 80%;
+    }
+    .footer1 h1{
+        font-size: 20px;
+    }
+    .footer1 ul li a{
+        font-size: 13px;
+    }
+    .footer2 h1{
+        font-size: 20px;
+    }
+    .footer2 ul li{
+        margin: 2px 0;
+    }
+    .footer2 ul li, .footer2 ul li a{
+        font-size: 13px;
+    }
+    .footer2 .iconos img{
+        width: 30px;
+        height: 30px;
+    }
+    .footer2 .iconos{
+        justify-content: space-around;
+    }
+}
+@media only screen and (max-width: 350px){
+    /* header */
+    .tit-header h1{
+        font-size: 25px;
+    }
+    .tit-header img:nth-child(1){
+        width: 50px;
+        height: 50px;
+    }
+    /* section3 */
+    .simbolos{
+        width: 99%;
+        min-height: 650px;
+    }
+    .simbolos img{
+        width: 150px;
+        height: 150px;
+    }
+    .simbolos h1{
+        font-size: 24px;
+    }
+    .simbolos p{
+        width: 90%;
+        font-size: 16px;
+    }
+}
