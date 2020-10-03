@@ -504,6 +504,7 @@ body {
     height: 50px;
     max-height: fit-content;
     transition: .5s;
+    margin-top: 30px;
 }
 
 .tit-simbolos:hover {
