@@ -164,15 +164,14 @@ a:is(:hover, :focus), button:is(:hover, :focus) {
     align-self: flex-start;
     padding-left: 0.9375rem;
     z-index: 1;
-    color: var(--white);
+    color: var(--blue);
 }
 
 .home h1 {
-    color: var(--white);
     text-align: left;
     font-size: 3.125rem;
     max-width: 28.125rem;
-    text-shadow: 8px 8px var(--blue), 0 0 10px var(--blue);
+    text-shadow: 0 0 0.625rem var(--black);
 }
 
 .home hr {
@@ -183,13 +182,18 @@ a:is(:hover, :focus), button:is(:hover, :focus) {
     height: 0.25rem;
     background: currentColor;
     margin: 0.9375rem 0;
-    margin-top: 0.3125rem;
-    box-shadow: 2px 2px var(--blue), 0 0 10px var(--blue);
-}
+    margin-top: 0.125rem;
+    box-shadow: 0 0 0.625rem var(--black);
+}   
 
 .home p {
-    text-shadow: 2px 2px var(--blue), 0 0 10px var(--blue);
     font-size: 1.25rem;
+    text-shadow: 0 0 0.625rem var(--black);
+}
+
+.home span {
+    color: var(--purple);
+    text-decoration: underline;
 }
 
 .box {
