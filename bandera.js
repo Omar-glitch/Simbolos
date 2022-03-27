@@ -1,45 +1,73 @@
-// Loader
-window.addEventListener('load', () => {
-     let loader = document.querySelector(".loader");
-     loader.style.opacity = 0;
-     loader.style.visibility = 'hidden';
-})
+
 
 // Listas del header Animacion:v
-var lista = document.querySelector('.list-header');
-var buttones = document.querySelector('.tit-header img:nth-child(3)');
-var papelHigienico = true;
-buttones.addEventListener('click', () => {
-    if(papelHigienico){
-        lista.style.left = 0;
-        buttones.src = 'ImgHonduras/SignoX.svg';
-        papelHigienico = false;
-    }else{
-        lista.style.left = '-500px';
-        buttones.src = 'ImgHonduras/Barras.svg';
-        papelHigienico = true;
-    }
+const lista = document.querySelector('.list-header');
+const button = document.getElementById('barras')
+let papelHigienico = false;
+const shadow = document.getElementById('shadow');
+const body = document.querySelector('body')
+
+const open_lista = () => {
+    papelHigienico = true;
+    lista.style.left = 0;
+    body.style.overflow = "hidden";
+    shadow.style.visibility = "visible";
+}
+
+const close_lista = () => {
+    papelHigienico = false;
+    lista.style.left = `-${lista.clientWidth / 16}rem`;
+    body.style.overflow = "visible";
+    shadow.style.visibility = "hidden";
+}
+
+button.addEventListener('click', () => {
+    if (!papelHigienico) return open_lista();
+    close_lista();
 })
-// HeaderAnimacion :v
-let posicionAnterior = window.pageYOffset;
-let header = document.querySelector('#header');
-window.addEventListener('scroll', () => {
-    let posicionActual = window.pageYOffset;
-    if(posicionAnterior > posicionActual){
+
+const is_lista_clicked = (e) => {
+    if (button.contains(e.target)) return;
+    if (!lista.contains(e.target) && papelHigienico) {
+        close_lista();
+    }
+}
+
+const resizing = (e) => {
+    const w = window.innerWidth;
+    const h = window.innerHeight;   
+
+    if (w - (w / 7) > h) {
+        if (papelHigienico) close_lista();
+    }
+}
+
+window.addEventListener('click', is_lista_clicked);
+window.addEventListener('resize', resizing);
+
+// HeaderAnimacion
+let posB = window.scrollY;
+const header = document.querySelector('#header');
+
+const scroll = () => {
+    let posA = window.scrollY;
+    if (posB > posA) {
         header.style.top = "0";
-        lista.style.top = '0';
-    }else{
-        header.style.top = "-100px";
-        lista.style.top = '0';
+    } else {
+        header.style.top = "-3.4375rem";
     }
-    posicionAnterior = posicionActual;
-})
+    posB = posA;
+
+    header.style.background = (posA > 50) ? "var(--white)" : "transparent";
+}
+
+window.addEventListener('scroll', scroll)
+
 //Enlaces y navegacion izquierda
-let bol = document.querySelectorAll('.list-header li a');
-bol.forEach( (element) => {
-    element.addEventListener('click', () => {
-       lista.style.left = "-500px";
-       buttones.src = 'ImgHonduras/Barras.svg';
-       papelHigienico=true;
+const links = document.querySelectorAll('.list-header li a');
+
+links.forEach((link) => {
+    link.addEventListener('click', () => {
+        close_lista();
     });
 });
